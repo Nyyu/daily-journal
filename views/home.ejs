@@ -1,5 +1,12 @@
-<%- include('header') %> 
+<%- include('partials/header'); %>
 
-
-
-<%- include('footer') %>
+<h1><%= title %></h1>
+<p><%= content.mainText %></p>
+<div style="width: 95%; margin: auto">
+    <% (content.array).forEach(element => { %>
+        <h2><%= element.title %></h2>
+        <p><%= element.text %></p>
+    <% }); %>
+</div>
+<!--  -->
+<%- include('partials/footer'); %> 

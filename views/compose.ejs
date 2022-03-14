@@ -1,0 +1,39 @@
+<!-- 
+    OBS. 
+
+    This method isn't any safe. Using recon 
+    tools can expose this "secret" page easily!
+
+    It's at the very least required a auth method
+    before being able to access this page's content
+-->
+
+<%- include('partials/header'); %>
+
+<h1><%= title %></h1>
+<form action="/compose" method="post">
+    <div class="form-group">
+        <label for="title-content" class="form-label">Title</label>
+        <input id="title-content" type="text" name="title" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label for="text-content" class="form-label">Text</label>
+        <textarea
+            rows="5"
+            id="text-content"
+            type="text"
+            name="text"
+            class="form-control"
+        ></textarea>
+    </div>
+    <button
+        class="btn btn-primary"
+        name="list"
+        type="submit"
+        value=<%=title%>
+        >Publish
+    </button>
+</form>
+
+<%- include('partials/footer'); %>
