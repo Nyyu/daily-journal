@@ -52,6 +52,7 @@ app.get("/compose", (req, res) => {
     res.render("compose", { title: "Compose" });
 });
 
+// No auth lol
 app.post("/compose", (req, res) => {
     posts.push({
         title: req.body.title,
@@ -64,11 +65,16 @@ app.get("/post", (req, res) => {
     res.redirect("/");
 });
 
-app.get("/post/:num", (req, res) => {
+app.get("/post/:title", (req, res) => {
     let title, content;
 
-    title = posts[posts.indexOf(req.param.title)].title;
-    content = posts[posts.indexOf(req.param.title)].text;
+    // Imma be honest, using index >>>
+    posts.forEach((element) => {
+        if (element.title === req.params.title) {
+            title = req.params.title;
+            content = element.text;
+        }
+    });
 
     res.render("post", { title: title, content: content });
 });
