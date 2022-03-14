@@ -4,6 +4,7 @@
 const express = require("express");
 const bp = require("body-parser");
 const ejs = require("ejs");
+const { redirect } = require("express/lib/response");
 
 const app = express();
 
@@ -57,6 +58,19 @@ app.post("/compose", (req, res) => {
         text: req.body.text,
     });
     res.redirect("/");
+});
+
+app.get("/post", (req, res) => {
+    res.redirect("/");
+});
+
+app.get("/post/:num", (req, res) => {
+    let title, content;
+
+    title = posts[posts.indexOf(req.param.title)].title;
+    content = posts[posts.indexOf(req.param.title)].text;
+
+    res.render("post", { title: title, content: content });
 });
 
 app.listen(process.env.PORT || 3000, () =>

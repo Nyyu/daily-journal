@@ -5,8 +5,24 @@
 <div style="width: 95%; margin: auto">
     <% (content.array).forEach(element => { %>
         <h2><%= element.title %></h2>
-        <p><%= element.text %></p>
+        <div style="
+            display: flex;
+        ">
+            <p style="
+            max-width: 950px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            margin-right: 5px;
+            "><%= element.text %>
+
+            </p>
+
+            <a href=<%=`/post/${content.array.title}`%> > 
+                read more
+            </a>
+        </div>
     <% }); %>
 </div>
 <!--  -->
-<%- include('partials/footer'); %>  
+<%- include('partials/footer'); %>
