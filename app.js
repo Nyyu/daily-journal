@@ -5,6 +5,7 @@ const express = require("express");
 const bp = require("body-parser");
 const ejs = require("ejs");
 const { redirect } = require("express/lib/response");
+const { lt } = require("lodash");
 
 const app = express();
 
@@ -70,7 +71,7 @@ app.get("/post/:title", (req, res) => {
 
     // Imma be honest, using index >>>
     posts.forEach((element) => {
-        if (element.title === req.params.title) {
+        if (element.title.toLowerCase() === req.params.title.toLowerCase()) {
             title = req.params.title;
             content = element.text;
         }
