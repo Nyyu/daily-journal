@@ -9,7 +9,7 @@
 
 ## Summary
 
-A simple website in which is meant to retain your daily life experiences.
+A simple website that stores your posts, like a diary or sth like that.
 
 ## Preview
 
