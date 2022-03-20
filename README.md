@@ -9,7 +9,7 @@
 
 ## Summary
 
-A simple website that stores your posts, like a diary or sth like that.
+  A simple diary, using Express, Ejs, lodash and body-parser
 
 ## Preview
 
