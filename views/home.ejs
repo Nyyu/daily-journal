@@ -9,19 +9,23 @@
             display: flex;
         ">
             <p style="
-            max-width: 950px;
-            white-space: nowrap;
-            overflow: hidden;
-            text-overflow: ellipsis;
-            margin-right: 5px;
+                max-width: 950px;
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                margin-right: 5px;
             "><%= element.text %>
 
             </p>
-
-            <a href=<%=`/post/${element.title}`%> > 
-                read more
-            </a>
-        </div>
+            <% if((element.title).includes(" ")) { %>
+                <% const newTitle = (element.title).split(" ") %>  
+                <a href=<%=`/post/${newTitle[0]}.${newTitle[1]}`%> > 
+                    <% } else { %>
+                        <a href=<%=`/post/${element.title}`%> >
+                    <% } %> 
+                    read more
+                </a>
+            </div>
     <% }); %>
 </div>
 <!--  -->

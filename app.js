@@ -16,7 +16,16 @@ const aboutContent =
 const contactContent =
     "Scelerisque eleifend donec pretium vulputate sapien. Rhoncus urna neque viverra justo nec ultrices. Arcu dui vivamus arcu felis bibendum. Consectetur adipiscing elit duis tristique. Risus viverra adipiscing at in tellus integer feugiat. Sapien nec sagittis aliquam malesuada bibendum arcu vitae. Consequat interdum varius sit amet mattis. Iaculis nunc sed augue lacus. Interdum posuere lorem ipsum dolor sit amet consectetur adipiscing elit. Pulvinar elementum integer enim neque. Ultrices gravida dictum fusce ut placerat orci nulla. Mauris in aliquam sem fringilla ut morbi tincidunt. Tortor posuere ac ut consequat semper viverra nam libero.";
 
-const posts = [];
+const posts = [
+    {
+        title: "example 01",
+        text: "eleifend donec pretium vulputate sapien. Rhoncus urna neque viverra justo nec ultrices. Arcu dui vivamus arcu",
+    },
+    {
+        title: "example02",
+        text: "eleifend donec pretium vulputate sapien. Rhoncus urna neque viverra justo nec ultrices. Arcu dui vivamus arcu",
+    },
+];
 
 app.use(express.static(__dirname + "/public"));
 app.use(bp.urlencoded({ extended: true }));
@@ -66,9 +75,23 @@ app.get("/post", (req, res) => {
     res.redirect("/");
 });
 
+app.get("/post/:title.:subtitle", (req, res) => {
+    let title, content;
+    console.log("i'm here! COMPOSED");
+    posts.forEach((element) => {
+        if (
+            element.title.toLowerCase() ===
+            `${req.params.title.toLowerCase()} ${req.params.subtitle.toLowerCase()}`
+        ) {
+            title = req.params.title + " " + req.params.subtitle;
+            content = element.text;
+        }
+    });
+
+    res.render("post", { title: title, content: content });
+});
 app.get("/post/:title", (req, res) => {
     let title, content;
-
     // Imma be honest, using index >>>
     posts.forEach((element) => {
         if (element.title.toLowerCase() === req.params.title.toLowerCase()) {
@@ -77,6 +100,7 @@ app.get("/post/:title", (req, res) => {
         }
     });
 
+    console.log("i'm here! NORMAL");
     res.render("post", { title: title, content: content });
 });
 
