@@ -8,18 +8,23 @@
         <div style="
             display: flex;
         ">
-            <p style="
-                max-width: 950px;
-                white-space: nowrap;
-                overflow: hidden;
-                text-overflow: ellipsis;
-                margin-right: 5px;
-            "><%= element.text %>
+        <!-- 
+            Truncated using CSS
 
+            max-width: 950px; 
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        -->
+            <p style="
+                margin-right: 5px;
+            ">
+            <!-- Truncated using JS -->
+                <%= (element.text).substring(0, 100) + "..." %>
             </p>
             <% if((element.title).includes(" ")) { %>
                 <% const newTitle = (element.title).split(" ") %>  
-                <a href=<%=`/post/${newTitle[0]}.${newTitle[1]}`%> > 
+                <a href=<%=`/post/${newTitle[0]}-${newTitle[1]}`%> > 
                     <% } else { %>
                         <a href=<%=`/post/${element.title}`%> >
                     <% } %> 
