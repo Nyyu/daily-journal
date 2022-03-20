@@ -22,13 +22,13 @@
             <!-- Truncated using JS -->
                 <%= (element.text).substring(0, 100) + "..." %>
             </p>
-            <% if((element.title).includes(" ")) { %>
-                <% const newTitle = (element.title).split(" ") %>  
-                <a href=<%=`/post/${newTitle[0]}-${newTitle[1]}`%> > 
-                    <% } else { %>
-                        <a href=<%=`/post/${element.title}`%> >
-                    <% } %> 
-                    read more
+                <% if((element.title).includes(" ")) { %>
+                    <% const newTitle = (element.title).split(" ") %>  
+                    <a href=<%=`/post/${newTitle[0]}-${newTitle[1]}`%> > 
+                <% } else { %>
+                    <a href=<%=`/post/${element.title}`%> >
+                <% } %> 
+                    Read more
                 </a>
             </div>
     <% }); %>

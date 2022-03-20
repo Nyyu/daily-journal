@@ -83,6 +83,7 @@ app.get("/post/:title-:subtitle", (req, res) => {
 
     res.render("post", { title: title, content: content });
 });
+
 app.get("/post/:title", (req, res) => {
     let title, content;
     // Imma be honest, using index >>>

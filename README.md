@@ -18,15 +18,3 @@ A simple website that stores your posts, like a diary or sth like that.
     <p align="center"> 
       <img src="./preview/desktop.png"> 
     </p>
-
--   ### Tablet
-
-    <p align="center"> 
-      <img src="./preview/tablet.png"> 
-    </p>
-
--   ### Mobile
-
-    <p align="center"> 
-      <img src="./preview/mobile.png"> 
-    </p>
